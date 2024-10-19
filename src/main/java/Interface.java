@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 
 public class Interface implements ActionListener {
 
+    // create Objects
+    Display display = new Display();
+    Logic logic = new Logic();
+
     static final char[][] symbols = {
             {'⌫', '^', '%', '÷'},
             {'7', '8', '9', '×'},
