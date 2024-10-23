@@ -20,15 +20,25 @@ public class Display extends JLabel {
         this.lastBox = box;
     }
 
-    public int getIndexCounter() {
-        return indexCounter;
-    }
-
     public String getSymbolString() {
-        return firstBox.getSymbolRecursively();
+        if (firstBox != null) {
+            return firstBox.getSymbolRecursively();
+        } else {
+            return "";
+        }
     }
 
     public void refresh() {
         this.setText(this.getSymbolString());
+    }
+
+    public void setResult(double number) {
+        this.setText(String.valueOf(number));
+    }
+
+    public void clear() {
+        indexCounter = 0;
+        firstBox = null;
+        lastBox = null;
     }
 }
