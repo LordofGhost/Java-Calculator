@@ -20,10 +20,6 @@ public class Box {
         afterwards = this;
     }
 
-    public void pushBox(Box previous) {
-        
-    }
-
     /// ## Index
     /// The index specify the order of the boxes
     /// ### Change order
