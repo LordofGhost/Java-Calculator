@@ -7,7 +7,7 @@ public class Logic {
         char op = '#';
         double num1 = 0;
         double num2 = 0;
-        short decimal = 0;
+        short decimal = 1;
         boolean pointSet = false;
 
         for (char symbol : chars) {
@@ -36,7 +36,7 @@ public class Logic {
                     break;
             }
         }
-        return setArithmetic(op, num1, num2);
+        return op != '#' ? setArithmetic(op, num1, num2) : num1;
     }
 
     public double setArithmetic(char op, double num1, double num2) {
@@ -57,9 +57,9 @@ public class Logic {
 
     public double numberFormat(char symbol, double number, boolean pointSet, int decimal) {
         if (pointSet) { // the '.' button was pressed
-            number = ((number * (10 ^ decimal)) + ((double) symbol - 48)) / (10 ^ decimal);
+            number = (((number * 10) * (Math.pow(10, (decimal-1)))) + ((double) symbol - 48)) / (Math.pow(10, decimal));
         } else if (number != 0) {
-            number = ((number * 10) + (double) symbol - 48) / 10;
+            number = (number * 10) + ((double) symbol - 48);
         } else {
             number = symbol - 48;
         }
