@@ -17,7 +17,7 @@ public class Interface implements ActionListener {
             {'7', '8', '9', '×'},
             {'4', '5', '6', '-'},
             {'1', '2', '3', '+'},
-            {'±', '0', ',', '='}
+            {'±', '0', '.', '='}
     };
 
     /**
@@ -29,9 +29,8 @@ public class Interface implements ActionListener {
 
         switch (symbol) {
             case '=':
-                break;
-
-            case '+','-','×','÷':
+                display.setResult(logic.getResult(display.getSymbolString()));
+                display.clear();
                 break;
 
             case '%':
@@ -41,19 +40,24 @@ public class Interface implements ActionListener {
                 break;
 
             case '±':
-
-                break;
-
-            case ',':
                 break;
 
             case '⌫':
+                display.clear();
+                display.refresh();
+                break;
+
+            case '0','1','2','3','4','5','6','7','8','9':
+            case '+', '-', '×', '÷':
+            case '.':
+                display.createBox(symbol);
+                display.refresh();
                 break;
 
             default:
-                display.createBox(symbol);
+                break;
         }
-        display.refresh();
+
     }
 
     // the constructor creates the hole GUI
