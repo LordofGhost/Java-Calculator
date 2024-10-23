@@ -1,16 +1,20 @@
 package main.java;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Display extends JLabel {
-
-    /// start at index 1, because 0 is for the minus of the first number
+    // start at index 1, because 0 is for the minus of the first number
     int indexCounter = 0;
 
-    /// Only the first box is directly stored in the object display and other boxes
-    /// are only stored in the box before theme
+    // Only the first box is directly stored in the object display and other boxes
+    // are only stored in the box before theme
     Box firstBox = null;
     Box lastBox = null;
+
+    public Display() {
+        this.setFont(new Font("Arial", Font.PLAIN, 32));
+    }
 
     public void createBox(char symbol) {
         indexCounter++;
@@ -25,6 +29,18 @@ public class Display extends JLabel {
             return firstBox.getSymbolRecursively();
         } else {
             return "";
+        }
+    }
+
+    public void deleteLast() {
+        if (lastBox == null) {
+            clear();
+        } else if (lastBox.getPrevious() == null) {
+            clear();
+        } else {
+            lastBox = lastBox.getPrevious();
+            lastBox.setAfterwards(null);
+            indexCounter--;
         }
     }
 

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 public class Interface implements ActionListener {
 
+    JLabel lall = new JLabel();
     // create Objects
     Display display = new Display();
     Logic logic = new Logic();
@@ -34,7 +35,8 @@ public class Interface implements ActionListener {
                 break;
 
             case '⌫':
-                display.clear();
+                //display.clear();
+                display.deleteLast();
                 display.refresh();
                 break;
 
@@ -57,9 +59,14 @@ public class Interface implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setPreferredSize(new Dimension(400,500));
 
+        JPanel displays = new JPanel();
+        displays.setPreferredSize(new Dimension(390,150));
+        displays.setMaximumSize(new Dimension(390,150));
+        displays.add(display);
+
         // create box with grid layout for buttons
         JPanel buttons = new JPanel(new GridLayout(symbols.length, symbols[0].length, 0, 0));
-        // go through the symbols array and print every array in one line
+        // go through the symbols 2d array and print every array in one line
         for (char[] rowSymbol : symbols) {
             for (char symbol : rowSymbol) {
                 JButton button = new JButton(Character.toString(symbol));
@@ -70,7 +77,7 @@ public class Interface implements ActionListener {
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 
-        frame.add(display);
+        frame.add(displays);
         frame.add(buttons);
 
         frame.pack();
