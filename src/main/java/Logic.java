@@ -13,9 +13,11 @@ public class Logic {
         for (char symbol : chars) {
             switch (symbol) {
                 case '+', '-', '×', '÷':
+                    if (op != '#') num1 = setArithmetic(op, num1, num2);
                     op = symbol;
                     pointSet = false;
                     decimal = 0;
+                    num2 = 0;
                     break;
 
                 case '.':
@@ -62,14 +64,5 @@ public class Logic {
             number = symbol - 48;
         }
         return number;
-    }
-
-    public static int getDecimalLength(double num) {
-        int counter = 0;
-        while ((num % 1) != 0) {
-            num *= 10;
-            counter++;
-        }
-        return counter;
     }
 }
