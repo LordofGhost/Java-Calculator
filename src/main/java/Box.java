@@ -13,13 +13,6 @@ public class Box {
         this.afterwards = afterwards;
     }
 
-    public Box() {
-        this.index = 0;
-        this.symbol = 0;
-        previous = this;
-        afterwards = this;
-    }
-
     /// ## Index
     /// The index specify the order of the boxes
     /// ### Change order

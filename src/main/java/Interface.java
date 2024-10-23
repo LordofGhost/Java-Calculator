@@ -8,8 +8,6 @@ import java.awt.event.ActionListener;
 
 public class Interface implements ActionListener {
 
-    JLabel lall = new JLabel();
-    // create Objects
     Display display = new Display();
     Logic logic = new Logic();
 
@@ -59,6 +57,7 @@ public class Interface implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setPreferredSize(new Dimension(400,500));
 
+        // display wrapper
         JPanel displays = new JPanel();
         displays.setPreferredSize(new Dimension(390,150));
         displays.setMaximumSize(new Dimension(390,150));
