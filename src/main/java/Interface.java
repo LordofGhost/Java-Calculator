@@ -13,11 +13,11 @@ public class Interface implements ActionListener {
     Logic logic = new Logic();
 
     static final char[][] symbols = {
-            {'⌫', '^', '%', '÷'},
+            {'⌫', ' ', ' ', '÷'},
             {'7', '8', '9', '×'},
             {'4', '5', '6', '-'},
             {'1', '2', '3', '+'},
-            {'±', '0', '.', '='}
+            {' ', '0', '.', '='}
     };
 
     /**
@@ -31,15 +31,6 @@ public class Interface implements ActionListener {
             case '=':
                 display.setResult(logic.getResult(display.getSymbolString()));
                 display.clear();
-                break;
-
-            case '%':
-                break;
-
-            case '^':
-                break;
-
-            case '±':
                 break;
 
             case '⌫':
